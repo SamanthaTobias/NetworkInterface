@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker Network Interface</title>
+</head>
+<body>
+<h1>Docker Network Interface</h1>
+<p>Network Name: <span th:text="${networkName}"></span></p>
+<h2>Apps:</h2>
+<ul>
+    <li th:each="app : ${apps}">
+        <div>
+            <h3 th:text="${app.name}"></h3>
+            <p th:text="${app.description}"></p>
+            <p>Endpoints:</p>
+            <ul>
+                <li th:each="endpoint : ${app.endpoints}" th:text="${endpoint}"></li>
+            </ul>
+            <a th:href="@{/apps/{appName}(appName=${app.name})}" th:text="${app.name}"></a>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${app.name}"></title>
+</head>
+<body>
+<h1 th:text="${app.name}"></h1>
+<h2>Endpoints:</h2>
+<ul>
+  <li th:each="endpoint : ${app.endpoints}" th:text="${endpoint}"></li>
+</ul>
+<a th:href="@{/apps}">Back</a>
+</body>
+</html>
