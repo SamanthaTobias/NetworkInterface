@@ -18,28 +18,18 @@ public class NetworkInterfaceController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		return apps(model); // todo better way of doing this?
-//		String networkName = networkInterfaceService.getNetworkName();
-//		List<AppInfo> appInfoList = networkInterfaceService.getAppInfo();
-//		model.addAttribute("networkName", networkName);
-//		model.addAttribute("appInfoList", appInfoList);
-//		return "network"; // todo make template
+		List<AppInfo> apps = networkInterfaceService.getAppInfo();
+		String networkName = networkInterfaceService.getNetworkName();
+		model.addAttribute("apps", apps);
+		model.addAttribute("networkName", networkName);
+		return "index";
 	}
 
 	@GetMapping("/apps/{appName}")
 	public String appDetails(@PathVariable String appName, Model model) {
 		AppInfo appInfo = networkInterfaceService.getAppInfo(appName);
 		model.addAttribute("app", appInfo);
-		return "app"; // todo make template
-	}
-
-	@GetMapping("/apps")
-	public String apps(Model model) {
-		List<AppInfo> apps = networkInterfaceService.getAppInfo();
-		String networkName = networkInterfaceService.getNetworkName();
-		model.addAttribute("apps", apps);
-		model.addAttribute("networkName", networkName);
-		return "index";
+		return "app";
 	}
 
 }
