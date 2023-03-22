@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+</head>
+<body>
+<h1>Test</h1>
+<h2>Spring Boot Containers:</h2>
+<ul>
+    <li th:each="container : ${inetAddressStrings}" th:text="${container}"></li>
+</ul>
+<a th:href="@{/}">Index</a>
+</body>
+</html>

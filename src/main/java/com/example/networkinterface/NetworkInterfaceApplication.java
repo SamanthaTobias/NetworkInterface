@@ -11,6 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class NetworkInterfaceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("java.naming.factory.initial", "com.example.MyJndiContextFactory");
 		SpringApplication.run(NetworkInterfaceApplication.class, args);
 	}
 
